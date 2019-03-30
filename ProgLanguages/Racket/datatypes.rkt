@@ -1,0 +1,35 @@
+#lang racket
+;; boolean
+(= 2 2)
+(if "no" 1 0)
+;; numbers
+;; exact: integers, rationals, complex with exact parts
+;; inexact: IEEE float, complex with floats
+
+;; exact numbers print as fractions or ints
+1/2
+(inexact->exact (sin 1/2))
+
+;; symbols. similar to julia (duh)
+(symbol? 'a)
+(define s (gensym)) ;; <- a new symbol
+
+;; hash tables. kinda like dictionaries
+
+(define ht (make-hash))
+(hash-set! ht "apple" '(red round))
+(hash-ref ht "apple") ;; '(red round)
+
+(define ht2 #hash(("apple" . red)
+                  ("banana" . yellow)))
+
+;; boxes. like 1-element vectors that can be "unboxed"
+(define b (box "apple"))
+b
+(unbox b)
+
+;; void. sometimes for ref. whose value not available yet
+(define (fails)
+  (define x x)
+  x) ;; undefined; cannot use before initialization
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="row">
+<div class="column" onclick="openTab('b1');"
+style = "background:green;">Box 1</div>
+<div class="column" onclick="openTab('b2');"
+style ="background:blue;">Box 2</div>
+<div class="column" onclick="openTab('b3');"
+style = "background:red;">Box 3</div>
+</div>
+
+<!--We create a "containerTab" class
+that JavaScript can then find and play with-->
+<div id="b1" class="containerTab" 
+style="display:none;background:green">
+<span onclick="this.parentElement.style.display='none'"
+class="closebtn">x</span>
+<h2>Box 1</h2>
+<p>Bigus</p>
+</div>
+
+<div id="b2" class="containerTab" 
+style="display:none;background:blue">
+<span onclick="this.parentElement.style.display='none'"
+class="closebtn">x</span>
+<h2>Box 2</h2>
+<p>Bigus also</p>
+</div>
+
+<div id="b3" class="containerTab" 
+style="display:none;background:red">
+<span onclick="this.parentElement.style.display='none'"
+class="closebtn">x</span>
+<h2>Box 3</h2>
+<p>Oh no! Too big!</p>
+</div>
+
+<script>
+// function hides elements with class "containerTab",
+// except for the one that matches
+
+function openTab(tabName) {
+    var i, x;
+    x = document.getElementsByClassName("containerTab");
+    for (i=0; i < x.length; i++) {
+        x[i].style.display = "none";
+    }
+    document.getElementById(tabName).style.display="block";
+    
+}
+</script>
+</body>
+</html>
